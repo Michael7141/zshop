@@ -60,7 +60,7 @@ const ProgressSteps = ({ currentStep }: ProgressStepsProps) => {
       <div
         className={cn(
           'h-full transition-all duration-300',
-          isActive ? 'bg-green-500' : 'bg-gray-200'
+          isActive ? 'bg-success' : 'bg-gray-200'
         )}
       />
     </div>
