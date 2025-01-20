@@ -1,6 +1,6 @@
-import { Stats } from '@/lib/ui/features/dashboard/stats';
-import { SalesChart } from '@/lib/ui/features/dashboard/sales-chart';
-import { TopProducts } from '@/lib/ui/features/dashboard/top-products';
+import { Stats } from '@/lib/ui/features/dashboard/Stats';
+import { SalesChart } from '@/lib/ui/features/dashboard/SalesChart';
+import { TopProducts } from '@/lib/ui/features/dashboard/TopProducts';
 import Welcome from '../../../lib/ui/features/dashboard/Welcome';
 import CustomPieChart from '../../../lib/ui/features/dashboard/PieChart';
 import RadialPieChart from '../../../lib/ui/features/dashboard/RadialPieChart';
