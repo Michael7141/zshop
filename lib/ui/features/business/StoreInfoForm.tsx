@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { FileUpload } from './file-upload';
+import { FileUpload } from './FileUpload';
 import { Card, CardContent } from '@/components/ui/card';
 import { X } from 'lucide-react';
 import type { StoreFormValues } from '@/lib/schemas/business-form';
