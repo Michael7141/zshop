@@ -13,18 +13,18 @@ export function NavBar({ className }: NavBarProps) {
   return (
     <div
       className={cn(
-        'flex items-center justify-between bg-white p-4 border rounded-lg',
+        'flex items-center justify-between bg-white p-4 border rounded-lg sticky top-4 z-50 w-full',
         className
       )}
     >
-      <div className='relative w-96'>
+      <div className='relative w-auto md:w-96 pr-2'>
         <Search className='absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500' />
         <Input
           placeholder='Search'
           className='pl-8 bg-gray-50 border-none shadow-[0_0_0_1px_rgb(0,0,0,0.05)]'
         />
       </div>
-      <div className='flex items-center gap-4'>
+      <div className='flex items-center gap-2 md:gap-4'>
         <Button
           variant='ghost'
           size='icon'
