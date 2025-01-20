@@ -12,10 +12,10 @@ import {
   type StoreFormValues,
   type MoreInfoFormValues,
 } from '@/lib/schemas/business-form';
-import ProgressSteps from './components/ProgressSteps';
-import { OwnerInfoForm } from '@/lib/ui/features/business/owner-info-form';
-import { MoreInfoForm } from '@/lib/ui/features/business/more-info-form';
-import { StoreInfoForm } from '@/lib/ui/features/business/store-info-form';
+import ProgressSteps from '../../../lib/ui/features/business/ProgressSteps';
+import { OwnerInfoForm } from '@/lib/ui/features/business/OwnerInfoForm';
+import { MoreInfoForm } from '@/lib/ui/features/business/MoreInfoForm';
+import { StoreInfoForm } from '@/lib/ui/features/business/StoreInfoForm';
 
 export default function BusinessForm() {
   const [currentStep, setCurrentStep] = useState(1);
