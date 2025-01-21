@@ -1,55 +1,51 @@
 'use client';
 
-import * as React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
-
-import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { TitleLogo } from '@/utils/svg';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { signIn } from 'next-auth/react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { useRouter } from 'next/navigation';
+import { TitleLogo } from '@/utils/svg';
+import Link from 'next/link';
 
-const formSchema = z.object({
-  email: z.string().email({
-    message: 'Please enter a valid email address.',
-  }),
-  password: z.string().min(8, {
-    message: 'Password must be at least 8 characters.',
-  }),
+const loginSchema = z.object({
+  email: z.string().email('Invalid email address'),
+  password: z.string().min(1, 'Password is required'),
 });
 
-export default function LoginForm() {
-  const router = useRouter();
-  const [isLoading, setIsLoading] = useState(false);
+type LoginForm = z.infer<typeof loginSchema>;
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
+export default function LoginForm() {
+  const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginForm>({
+    resolver: zodResolver(loginSchema),
   });
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsLoading(true);
+  const onSubmit = async (data: LoginForm) => {
+    try {
+      const result = await signIn('credentials', {
+        redirect: false,
+        email: data.email,
+        password: data.password,
+      });
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setIsLoading(false);
-    router.push('/dashboard');
-  }
+      if (result?.error) {
+        setError('Invalid email or password');
+      } else {
+        router.push('/dashboard');
+      }
+    } catch (error) {
+      setError('An error occurred during login');
+    }
+  };
 
   return (
     <div className='w-full gap-20 flex flex-col items-center justify-center'>
@@ -63,55 +59,32 @@ export default function LoginForm() {
         <p className='text-sm text-muted-foreground text-start'>
           Please enter your credentials to access your account.
         </p>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
-            <FormField
-              control={form.control}
-              name='email'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email*</FormLabel>
-                  <FormControl>
-                    <Input placeholder='Enter your email' {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name='password'
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password*</FormLabel>
-                  <FormControl>
-                    <Input
-                      type='password'
-                      placeholder='Enter your password'
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <div className='flex items-center justify-end'>
-              <Link
-                href='/forgot-password'
-                className='text-sm text-primary hover:underline'
-              >
-                Forgot my password?
-              </Link>
-            </div>
-            <Button
-              type='submit'
-              className='w-full bg-primary'
-              disabled={isLoading}
+        <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
+          <Input type='email' placeholder='Email' {...register('email')} />
+          {errors.email && (
+            <p className='text-red-500'>{errors.email.message}</p>
+          )}
+          <Input
+            type='password'
+            placeholder='Password'
+            {...register('password')}
+          />
+          {errors.password && (
+            <p className='text-red-500'>{errors.password.message}</p>
+          )}
+          <div className='flex items-center justify-end'>
+            <Link
+              href='/forgot-password'
+              className='text-sm text-primary hover:underline'
             >
-              {isLoading ? 'Signing in...' : 'Sign In'}
-            </Button>
-          </form>
-        </Form>
+              Forgot my password?
+            </Link>
+          </div>
+          {error && <p className='text-red-500'>{error}</p>}
+          <Button type='submit' className='w-full bg-primary'>
+            Log In
+          </Button>
+        </form>
         <div className='text-center space-x-2'>
           <span className='text-sm text-muted-foreground'>
             Don&apos;t have an account?

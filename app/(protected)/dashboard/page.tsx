@@ -1,3 +1,4 @@
+'use client';
 import { Stats } from '@/lib/ui/features/dashboard/Stats';
 import { SalesChart } from '@/lib/ui/features/dashboard/SalesChart';
 import { TopProducts } from '@/lib/ui/features/dashboard/TopProducts';
