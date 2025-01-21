@@ -16,7 +16,6 @@ import { X } from 'lucide-react';
 import type { StoreFormValues } from '@/lib/schemas/business-form';
 import { Checkbox } from '@/components/ui/checkbox';
 import FormContainer from '../../form/FormContainer';
-import FormInfo from '../../form/FormInfo';
 
 interface StoreInfoFormProps {
   form: UseFormReturn<StoreFormValues>;

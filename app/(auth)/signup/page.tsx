@@ -44,6 +44,7 @@ export default function SignupForm() {
         setError(errorData.message || 'An error occurred during signup');
       }
     } catch (error) {
+      console.log(error);
       setError('An error occurred during signup');
     }
   };

@@ -38,11 +38,15 @@ export default function LoginForm() {
       });
 
       if (result?.error) {
+        console.log(result?.error);
+
         setError('Invalid email or password');
       } else {
         router.push('/dashboard');
       }
     } catch (error) {
+      console.log(error);
+
       setError('An error occurred during login');
     }
   };

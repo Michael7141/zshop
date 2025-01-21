@@ -30,8 +30,8 @@ export default function Dashboard() {
                   <h2 className='text-4xl font-medium'>Amanuel Desalegn</h2>
                 </div>
                 <p className='text-2xl text-gray-500 w-[70%]'>
-                  Here's What Happening On Your Store Today. See The Statistics
-                  At Once.
+                  Here&apos;s What Happening On Your Store Today. See The
+                  Statistics At Once.
                 </p>
                 <Button className='bg-primary hover:bg-primary/90 text-white text-base gap-2'>
                   <Plus className='h-5 w-5' />
@@ -42,7 +42,7 @@ export default function Dashboard() {
                 <img
                   src='apps.png'
                   alt='Store illustration'
-                  className='w-80 h-w-80 object-contain'
+                  className='w-80 h-80 object-contain'
                 />
               </div>
             </div>

@@ -13,7 +13,6 @@ import {
 import { FileUpload } from './FileUpload';
 import { Calendar } from 'lucide-react';
 import type { OwnerFormValues } from '@/lib/schemas/business-form';
-import FormInfo from '../../form/FormInfo';
 import FormContainer from '../../form/FormContainer';
 
 interface OwnerInfoFormProps {

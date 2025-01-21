@@ -9,7 +9,6 @@ interface FileUploadProps {
 
 export const FileUpload = ({
   onFileSelect,
-  label,
   accept = 'image/*',
   maxSize = 5,
 }: FileUploadProps) => {
