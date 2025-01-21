@@ -9,7 +9,7 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import { Card, CardContent } from '@/components/ui/card';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Stats from '@/lib/ui/features/dashboard/Stats';
+import Stats from '@/lib/ui/features/dashboard/Statsis';
 
 export default function Dashboard() {
   return (

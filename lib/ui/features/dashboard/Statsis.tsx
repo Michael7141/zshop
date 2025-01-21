@@ -41,7 +41,7 @@ const stats = [
   },
 ];
 
-export default function Stats() {
+export default function Statses() {
   return (
     <div className='flex flex-wrap justify-between items-center w-full'>
       <div className='flex flex-wrap justify-between gap-4 w-full'>
