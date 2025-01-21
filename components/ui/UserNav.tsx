@@ -18,7 +18,7 @@ import {
   DropdownMenuTrigger,
 } from './dropdown-menu';
 import { Button } from './button';
-import { Avatar, AvatarFallback, AvatarImage } from './avatar';
+import { Avatar, AvatarFallback } from './avatar';
 import SignoutButton from './SignoutButton';
 
 // import SignoutButton from "./SignoutButton";

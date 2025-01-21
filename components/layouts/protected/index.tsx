@@ -1,7 +1,6 @@
 import React from 'react';
 
 import AdminPanelLayout from './AdminPanel';
-import SidebarProvider from '@/providers/sidebar/SidebarProvider';
 
 interface Props {
   children: React.ReactNode;
