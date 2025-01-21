@@ -15,12 +15,14 @@ import {
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarTrigger,
 } from '@/components/ui/sidebar';
 import { usePathname } from 'next/navigation';
 import { TitleLogo } from '@/utils/svg';
@@ -49,17 +51,20 @@ const items = [
   { title: 'Configurations', url: '/configurations', icon: Settings },
 ];
 
-export function AppSidebar() {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
-
   return (
-    <Sidebar className='flex h-full w-64 flex-col border-r border-l border-t border-b bg-white rounded-lg'>
-      <SidebarHeader>
-        <div className='p-4'>
-          <TitleLogo className='h-12' />
-        </div>
-      </SidebarHeader>
+    <Sidebar
+      collapsible='icon'
+      {...props}
+      className='flex h-full w-64 flex-col border-r border-l border-t border-b bg-white rounded-lg'
+    >
       <SidebarContent>
+        <SidebarHeader>
+          <div className='p-4 md:flex hidden'>
+            <TitleLogo className='h-12' />
+          </div>
+        </SidebarHeader>
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -93,6 +98,10 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        {/* <NavUser user={data.user} /> */}
+        <SidebarTrigger className='-ml-1' />
+      </SidebarFooter>
     </Sidebar>
   );
 }
