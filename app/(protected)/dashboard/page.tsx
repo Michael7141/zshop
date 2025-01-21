@@ -1,8 +1,6 @@
 'use client';
-import { Stats } from '@/lib/ui/features/dashboard/Stats';
 import { SalesChart } from '@/lib/ui/features/dashboard/SalesChart';
 import { TopProducts } from '@/lib/ui/features/dashboard/TopProducts';
-import Welcome from '../../../lib/ui/features/dashboard/Welcome';
 import CustomPieChart from '../../../lib/ui/features/dashboard/PieChart';
 import RadialPieChart from '../../../lib/ui/features/dashboard/RadialPieChart';
 import Top5Stores from '../../../lib/ui/features/dashboard/Top5Stores';
@@ -11,6 +9,7 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import { Card, CardContent } from '@/components/ui/card';
 import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Stats from '@/lib/ui/features/dashboard/Stats';
 
 export default function Dashboard() {
   return (
