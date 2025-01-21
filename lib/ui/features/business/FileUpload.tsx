@@ -14,7 +14,6 @@ interface FileUploadProps {
 }
 
 export function FileUpload({
-  label,
   maxSize = 50,
   accept,
   onChange,
