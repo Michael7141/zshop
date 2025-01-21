@@ -4,6 +4,7 @@ import { Bell, MessageSquare, Search, Settings } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { UserNav } from './UserNav';
 
 interface NavBarProps {
   className?: string;
@@ -47,12 +48,9 @@ export function NavBar({ className }: NavBarProps) {
         >
           <Settings className='h-5 w-5 text-gray-500' />
         </Button>
-        <Button
-          size='icon'
-          className='bg-[#AD002D] hover:bg-[#AD002D]/90 text-white rounded-full h-8 w-8 shadow-[0_2px_4px_rgb(173,0,45,0.2)]'
-        >
-          P
-        </Button>
+        <div className='flex flex-1 items-center justify-end'>
+          <UserNav />
+        </div>
       </div>
     </div>
   );
