@@ -13,7 +13,7 @@ import {
   Truck,
   Settings,
 } from 'lucide-react';
-import { TitleLogo } from '@/utils/svg';
+import { ZemenShopLogo } from '@/utils/ZemenShopLogo';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
@@ -43,7 +43,7 @@ export function Sidebar() {
   return (
     <div className='flex h-full w-64 flex-col border-r border-l border-t border-b bg-white rounded-lg'>
       <div className='p-4'>
-        <TitleLogo className='h-12' />
+        <ZemenShopLogo className='h-12' />
       </div>
       <nav className='flex-1 space-y-1 px-2 py-4'>
         {navigation.map((item) => {

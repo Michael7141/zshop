@@ -1,4 +1,4 @@
-import { TitleLogo } from '@/utils/svg';
+import { ZemenShopLogo } from '@/utils/ZemenShopLogo';
 import React from 'react';
 import { Icon } from '@iconify/react/dist/iconify.js';
 
@@ -11,7 +11,7 @@ export default function AuthLayout({ children }: Props) {
       {/* Header */}
       <header className='flex justify-between items-center p-4 bg-white'>
         <div>
-          <TitleLogo className='h-12' />
+          <ZemenShopLogo className='h-12' />
         </div>
         <div className='flex flex-col items-center gap-1'>
           <Icon icon='lucide:help-circle' className='h-6 w-6 cursor-pointer' />

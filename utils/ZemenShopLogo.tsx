@@ -4,7 +4,7 @@ import React from 'react';
 interface Props extends SVGProps<SVGSVGElement> {
   loading?: boolean;
 }
-export const TitleLogo = (props: Props) => {
+export const ZemenShopLogo = (props: Props) => {
   return (
     <svg
       {...props}

@@ -23,10 +23,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarTrigger,
+  useSidebar,
 } from '@/components/ui/sidebar';
 import { usePathname } from 'next/navigation';
-import { TitleLogo } from '@/utils/svg';
+import { ZemenShopLogo } from '@/utils/ZemenShopLogo';
 import { cn } from '@/lib/utils';
+import { ZLogo } from '@/utils/ZLogo';
 
 // Menu items.
 const items = [
@@ -53,6 +55,8 @@ const items = [
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname();
+  const { open } = useSidebar();
+
   return (
     <Sidebar
       collapsible='icon'
@@ -61,9 +65,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     >
       <SidebarContent>
         <SidebarHeader>
-          <div className='p-4 md:flex hidden'>
-            <TitleLogo className='h-12' />
-          </div>
+          {open === true ? (
+            <div className='p-4 md:flex hidden'>
+              <ZemenShopLogo className='h-8' />
+            </div>
+          ) : (
+            <div className='md:flex hidden'>
+              <ZLogo className='w-12 ' />
+            </div>
+          )}
         </SidebarHeader>
         <SidebarGroup>
           <SidebarGroupContent>
@@ -100,7 +110,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarFooter>
         {/* <NavUser user={data.user} /> */}
-        <SidebarTrigger className='-ml-1' />
+        <SidebarTrigger />
       </SidebarFooter>
     </Sidebar>
   );
