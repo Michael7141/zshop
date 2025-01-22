@@ -25,8 +25,9 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar';
 import { usePathname } from 'next/navigation';
-import { TitleLogo } from '@/utils/svg';
+import { ZemenShopLogo } from '@/utils/ZemenShopLogo';
 import { cn } from '@/lib/utils';
+import { ZLogo } from '@/utils/ZLogo';
 
 // Menu items.
 const items = [
@@ -62,7 +63,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <SidebarHeader>
           <div className='p-4 md:flex hidden'>
-            <TitleLogo className='h-12' />
+            <ZemenShopLogo className='h-12' />
+          </div>
+          <div className='md:flex hidden'>
+            <ZLogo className='h-12 flex lg:hidden' />
           </div>
         </SidebarHeader>
         <SidebarGroup>

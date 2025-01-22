@@ -7,7 +7,7 @@ import * as z from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useRouter } from 'next/navigation';
-import { TitleLogo } from '@/utils/svg';
+import { ZemenShopLogo } from '@/utils/ZemenShopLogo';
 import Link from 'next/link';
 
 const signupSchema = z.object({
@@ -52,7 +52,7 @@ export default function SignupForm() {
   return (
     <div className='w-full gap-20 flex flex-col items-center justify-center'>
       <div className='flex justify-center'>
-        <TitleLogo className='h-12' />
+        <ZemenShopLogo className='h-12' />
       </div>
       <div className='flex flex-col gap-7'>
         <h1 className='text-2xl font-bold text-primary tracking-tight text-start'>
