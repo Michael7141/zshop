@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       <AppSidebar />
 
-      <main className='w-full p-4 space-y-4'>
+      <main className='w-full p-4 space-y-4 bg-[#F7F7F7]'>
         <NavBar />
         {children}
       </main>
