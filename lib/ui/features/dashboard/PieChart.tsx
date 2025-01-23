@@ -56,7 +56,7 @@ export default function CustomPieChart() {
       <CardContent className='flex-1 pb-0'>
         <ChartContainer
           config={chartConfig}
-          className='mx-auto aspect-square max-h-[330px] px-0'
+          className='mx-auto aspect-square max-h-[100px] px-0'
         >
           <PieChart>
             <ChartTooltip
@@ -83,10 +83,7 @@ export default function CustomPieChart() {
               }}
               nameKey='browser'
             />
-            <ChartLegend
-              content={<ChartLegendContent nameKey='browser' />}
-              className='grid grid-cols-2'
-            />
+            <ChartLegend content={<ChartLegendContent nameKey='browser' />} />
           </PieChart>
         </ChartContainer>
       </CardContent>

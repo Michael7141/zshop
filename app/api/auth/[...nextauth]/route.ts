@@ -8,6 +8,7 @@ const prisma = new PrismaClient();
 
 const handler = NextAuth({
   adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: 'Credentials',
