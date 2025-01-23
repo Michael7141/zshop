@@ -1,16 +1,60 @@
-'use client';
-import { SalesChart } from '@/lib/ui/features/dashboard/SalesChart';
-import { TopProducts } from '@/lib/ui/features/dashboard/TopProducts';
-import CustomPieChart from '../../../lib/ui/features/dashboard/PieChart';
-import RadialPieChart from '../../../lib/ui/features/dashboard/RadialPieChart';
-import Top5Stores from '../../../lib/ui/features/dashboard/Top5Stores';
-import UserLocationMap from '../../../lib/ui/features/dashboard/UserLocationMap';
-import { Icon } from '@iconify/react/dist/iconify.js';
-import { Card, CardContent } from '@/components/ui/card';
-import { Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Stats from '@/lib/ui/features/dashboard/Statsis';
 
+import { Plus } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+
+import { Icon } from '@iconify/react/dist/iconify.js';
+import Below from './Below';
+import { Stats } from './stats';
+import { SalesChart } from './sales-chart';
+import { TopProducts } from './top-products';
+
+type Store = {
+  id: number;
+  name: string;
+  location: string;
+  soldItems: number;
+};
+
+type CategoryData = {
+  name: string;
+  value: number;
+  color: string;
+};
+
+const categoryData: CategoryData[] = [
+  { name: 'Gourmet Foods', value: 45, color: '#86efac' },
+  { name: 'Traditional Clothe', value: 20, color: '#fdba74' },
+  { name: 'Fast Foods', value: 15, color: '#93c5fd' },
+  { name: 'Kids Book', value: 12, color: '#6b7280' },
+  { name: 'Fruits', value: 8, color: '#f87171' },
+];
+
+// Sample data for stores
+const stores: Store[] = Array(5).fill({
+  id: 1,
+  name: 'Queen Sheba Mart',
+  location: 'Washington DC',
+  soldItems: 2.8,
+});
+
+// Sample data for performing ads
+const adsData = [
+  { name: 'Christmas Ads', value: 30, color: '#22c55e' },
+  { name: 'Elsa Kolo', value: 25, color: '#3b82f6' },
+  { name: 'Fruits', value: 20, color: '#ef4444' },
+  { name: 'Traditional Clothe', value: 15, color: '#f97316' },
+  { name: 'Fast Foods', value: 10, color: '#7dd3fc' },
+];
+
+// Custom map colors for states
+const mapColors = {
+  CA: '#fce7f3',
+  TX: '#fda4af',
+  FL: '#f43f5e',
+  NY: '#fda4af',
+  // Add more states as needed
+};
 export default function Dashboard() {
   return (
     <div className='flex flex-1 overflow-auto w-full'>
@@ -30,8 +74,8 @@ export default function Dashboard() {
                   <h2 className='text-4xl font-medium'>Amanuel Desalegn</h2>
                 </div>
                 <p className='text-2xl text-gray-500 w-[70%]'>
-                  Here&apos;s What Happening On Your Store Today. See The
-                  Statistics At Once.
+                  Here's What Happening On Your Store Today. See The Statistics
+                  At Once.
                 </p>
                 <Button className='bg-primary hover:bg-primary/90 text-white text-base gap-2'>
                   <Plus className='h-5 w-5' />
@@ -49,7 +93,7 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        <div className='px-5 py-3 rounded-2xl border-border border'>
+        <div className='px-5 py-3 rounded-2xl border-border bg-white border'>
           <Stats />
         </div>
 
@@ -57,22 +101,7 @@ export default function Dashboard() {
           <SalesChart />
           <TopProducts />
         </div>
-        <div className='space-y-4'>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-            {/* Best Performing Categories */}
-            <CustomPieChart />
-
-            {/* User Location Map */}
-            <UserLocationMap />
-          </div>
-
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-            {/* Top 5 Stores */}
-            <Top5Stores />
-            {/* Performing Ads */}
-            <RadialPieChart />
-          </div>
-        </div>
+        <Below />
       </div>
     </div>
   );

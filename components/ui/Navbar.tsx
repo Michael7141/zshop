@@ -14,7 +14,7 @@ export function NavBar({ className }: NavBarProps) {
   return (
     <div
       className={cn(
-        'flex items-center justify-between bg-white p-4 border rounded-lg sticky top-4 z-50 w-full',
+        'flex items-center justify-between bg-white p-4 border rounded-lg w-full',
         className
       )}
     >
